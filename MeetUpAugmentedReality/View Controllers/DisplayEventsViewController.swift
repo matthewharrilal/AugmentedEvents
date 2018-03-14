@@ -38,6 +38,8 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
         
         getImageUrl()
+        
+        view.addSubview(pokemonButton)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -60,7 +62,7 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
         
         pokemonNetworking.getPokemonImage { (data) in
             guard let json = try? JSONDecoder().decode(Pokemon.self, from: data) else {return}
-            print("THis is the json \(json.frontDefault)")
+            print("THis is the json \(json)")
             let keychain = KeychainSwift()
             keychain.set(json.frontDefault, forKey: "frontDefault")
         }
@@ -82,6 +84,17 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
         return node
     }
     
+    var pokemonButton: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Poke", for: .normal)
+        btn.setTitleColor(.black, for: .normal)
+        btn.backgroundColor = .white
+        btn.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        btn.center = CGPoint(x: UIScreen.main.bounds.width*0.85, y: UIScreen.main.bounds.height*0.90)
+        btn.layer.cornerRadius = btn.bounds.height/2
+        print("User wants pokemon generated")
+        return btn
+    }()
     
     
     func session(_ session: ARSession, didFailWithError error: Error) {

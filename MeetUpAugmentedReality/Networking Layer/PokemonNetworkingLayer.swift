@@ -13,7 +13,7 @@ class PokemonModelNetworkingLayer {
     let session = URLSession.shared
     
     func getPokemonImage(completionHandler: @escaping(Data) -> Void) {
-        let path = "https://pokeapi.co/api/v2/pokemon-form/1/"
+        let path = "https://pokeapi.co/api/v2/pokemon-form?limit=5"
         let getRequest = URLRequest(url: URL(string: path)!)
         
         session.dataTask(with: getRequest) { (data

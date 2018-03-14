@@ -36,3 +36,4 @@ extension Pokemon: Decodable {
         self.init(frontDefault: frontDefault, isBattleOnly: isBattleOnly)
     }
 }
+
