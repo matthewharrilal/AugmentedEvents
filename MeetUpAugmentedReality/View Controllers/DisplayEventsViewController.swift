@@ -9,10 +9,13 @@
 import UIKit
 import SceneKit
 import ARKit
+import KeychainSwift
 
 class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    
+    var frontDefaultImageUrl = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,10 +25,8 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
         displayImage()
-        
-    }
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -35,6 +36,8 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
 
         // Run the view's session
         sceneView.session.run(configuration)
+        
+        getImageUrl()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,14 +54,30 @@ class DisplayEventsViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
+    func getImageUrl() {
+        
+        let pokemonNetworking = PokemonModelNetworkingLayer()
+        
+        pokemonNetworking.getPokemonImage { (data) in
+            guard let json = try? JSONDecoder().decode(Pokemon.self, from: data) else {return}
+            print("THis is the json \(json.frontDefault)")
+            let keychain = KeychainSwift()
+            keychain.set(json.frontDefault, forKey: "frontDefault")
+        }
+    }
+    
 
     func displayImage() -> SCNNode? {
+        let keychain = KeychainSwift()
+        let data = try? Data(contentsOf: URL(string: keychain.get("frontDefault")! )!)
+        let uiImage  = UIImage(data: data!)
+    
+        
         let imagePlane = SCNPlane(width: sceneView.bounds.width/6000, height: sceneView.bounds.height/6000)
-        imagePlane.firstMaterial?.diffuse.contents = UIImage(named: "pin")
+        imagePlane.firstMaterial?.diffuse.contents = uiImage
         imagePlane.firstMaterial?.lightingModel = .constant
         let node = SCNNode(geometry: imagePlane)
-        print("HELLO WORLD")
-
+        print("The node was added")
         sceneView.scene.rootNode.addChildNode(node)
         return node
     }

@@ -14,9 +14,13 @@
 		1C81C5B62058859800AA19EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C81C5B52058859800AA19EF /* Assets.xcassets */; };
 		1C81C5B92058859800AA19EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C81C5B72058859800AA19EF /* LaunchScreen.storyboard */; };
 		1C81C5C12058870200AA19EF /* pin.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 1C81C5C02058870200AA19EF /* pin.jpeg */; };
+		1C81C5C62058BD9600AA19EF /* PokemonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C81C5C52058BD9600AA19EF /* PokemonModel.swift */; };
+		1C81C5C82058BF0700AA19EF /* PokemonNetworkingLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C81C5C72058BF0700AA19EF /* PokemonNetworkingLayer.swift */; };
+		D58C2817FDE4B2A08E8B2EF8 /* Pods_MeetUpAugmentedReality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F09E864BF3A22728FADE748 /* Pods_MeetUpAugmentedReality.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B5296C85CD5E954A80BB4CD /* Pods-MeetUpAugmentedReality.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetUpAugmentedReality.release.xcconfig"; path = "Pods/Target Support Files/Pods-MeetUpAugmentedReality/Pods-MeetUpAugmentedReality.release.xcconfig"; sourceTree = "<group>"; };
 		1C81C5A92058859800AA19EF /* MeetUpAugmentedReality.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetUpAugmentedReality.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C81C5AC2058859800AA19EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C81C5AE2058859800AA19EF /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -26,6 +30,10 @@
 		1C81C5B82058859800AA19EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C81C5BA2058859800AA19EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1C81C5C02058870200AA19EF /* pin.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pin.jpeg; sourceTree = "<group>"; };
+		1C81C5C52058BD9600AA19EF /* PokemonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonModel.swift; sourceTree = "<group>"; };
+		1C81C5C72058BF0700AA19EF /* PokemonNetworkingLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonNetworkingLayer.swift; sourceTree = "<group>"; };
+		1F09E864BF3A22728FADE748 /* Pods_MeetUpAugmentedReality.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetUpAugmentedReality.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2AB4AC57EACD43B45B9EB7D /* Pods-MeetUpAugmentedReality.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetUpAugmentedReality.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MeetUpAugmentedReality/Pods-MeetUpAugmentedReality.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D58C2817FDE4B2A08E8B2EF8 /* Pods_MeetUpAugmentedReality.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,8 @@
 			children = (
 				1C81C5AB2058859800AA19EF /* MeetUpAugmentedReality */,
 				1C81C5AA2058859800AA19EF /* Products */,
+				2C29D2699C83D4ACA73CD9A1 /* Pods */,
+				73D0ADA0A69F0C231C800B78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,9 +69,11 @@
 		1C81C5AB2058859800AA19EF /* MeetUpAugmentedReality */ = {
 			isa = PBXGroup;
 			children = (
+				1C81C5C420588D7100AA19EF /* Networking Layer */,
+				1C81C5C320588D6A00AA19EF /* Models */,
+				1C81C5C220588D5900AA19EF /* View Controllers */,
 				1C81C5AC2058859800AA19EF /* AppDelegate.swift */,
 				1C81C5AE2058859800AA19EF /* art.scnassets */,
-				1C81C5B02058859800AA19EF /* DisplayEventsViewController.swift */,
 				1C81C5C02058870200AA19EF /* pin.jpeg */,
 				1C81C5B22058859800AA19EF /* Main.storyboard */,
 				1C81C5B52058859800AA19EF /* Assets.xcassets */,
@@ -70,6 +83,47 @@
 			path = MeetUpAugmentedReality;
 			sourceTree = "<group>";
 		};
+		1C81C5C220588D5900AA19EF /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C81C5B02058859800AA19EF /* DisplayEventsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		1C81C5C320588D6A00AA19EF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1C81C5C52058BD9600AA19EF /* PokemonModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1C81C5C420588D7100AA19EF /* Networking Layer */ = {
+			isa = PBXGroup;
+			children = (
+				1C81C5C72058BF0700AA19EF /* PokemonNetworkingLayer.swift */,
+			);
+			path = "Networking Layer";
+			sourceTree = "<group>";
+		};
+		2C29D2699C83D4ACA73CD9A1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2AB4AC57EACD43B45B9EB7D /* Pods-MeetUpAugmentedReality.debug.xcconfig */,
+				1B5296C85CD5E954A80BB4CD /* Pods-MeetUpAugmentedReality.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		73D0ADA0A69F0C231C800B78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F09E864BF3A22728FADE748 /* Pods_MeetUpAugmentedReality.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +131,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C81C5BD2058859800AA19EF /* Build configuration list for PBXNativeTarget "MeetUpAugmentedReality" */;
 			buildPhases = (
+				BDB1BB449DDDBC601C6F5831 /* [CP] Check Pods Manifest.lock */,
 				1C81C5A52058859800AA19EF /* Sources */,
 				1C81C5A62058859800AA19EF /* Frameworks */,
 				1C81C5A72058859800AA19EF /* Resources */,
+				DBF0C5D11D863568E7E68BFE /* [CP] Embed Pods Frameworks */,
+				42BA36845DF5BF4C843C63A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -139,12 +196,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42BA36845DF5BF4C843C63A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeetUpAugmentedReality/Pods-MeetUpAugmentedReality-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BDB1BB449DDDBC601C6F5831 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MeetUpAugmentedReality-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBF0C5D11D863568E7E68BFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MeetUpAugmentedReality/Pods-MeetUpAugmentedReality-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MeetUpAugmentedReality/Pods-MeetUpAugmentedReality-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1C81C5A52058859800AA19EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1C81C5B12058859800AA19EF /* DisplayEventsViewController.swift in Sources */,
+				1C81C5C82058BF0700AA19EF /* PokemonNetworkingLayer.swift in Sources */,
+				1C81C5C62058BD9600AA19EF /* PokemonModel.swift in Sources */,
 				1C81C5AD2058859800AA19EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +393,7 @@
 		};
 		1C81C5BE2058859800AA19EF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2AB4AC57EACD43B45B9EB7D /* Pods-MeetUpAugmentedReality.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +409,7 @@
 		};
 		1C81C5BF2058859800AA19EF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B5296C85CD5E954A80BB4CD /* Pods-MeetUpAugmentedReality.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
